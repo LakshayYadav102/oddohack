@@ -1,0 +1,367 @@
+/* OtherUserProfile.css */
+:root {
+  --primary: #4361ee;
+  --primary-dark: #3f37c9;
+  --secondary: #4cc9f0;
+  --accent: #f72585;
+  --success: #4CAF50;
+  --warning: #FFC107;
+  --danger: #F44336;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --gray: #6c757d;
+  --light-gray: #e9ecef;
+  --card-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  --transition: all 0.3s ease;
+  --border-radius: 12px;
+}
+
+.profile-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.profile-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(67, 97, 238, 0.2);
+  border-top: 5px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1.5rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.profile-error {
+  text-align: center;
+  padding: 3rem;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  margin: 2rem;
+  color: var(--danger);
+  font-weight: 500;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--light);
+  border: 1px solid var(--light-gray);
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+
+.back-btn:hover {
+  background: rgba(67, 97, 238, 0.1);
+  transform: translateY(-2px);
+}
+
+.profile-header h1 {
+  flex: 1;
+  text-align: center;
+  font-size: 2rem;
+  color: var(--primary-dark);
+  margin: 0;
+  padding-right: 80px; 
+}
+
+.profile-card {
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.profile-banner {
+  height: 180px;
+  position: relative;
+}
+
+.profile-avatar {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 5px solid white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  background: var(--light);
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  color: white;
+  font-size: 3.5rem;
+}
+
+.profile-info {
+  padding: 5rem 2rem 2rem;
+}
+
+.profile-meta {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.rating-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 193, 7, 0.1);
+  color: var(--warning);
+  padding: 0.6rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.star-icon {
+  color: var(--warning);
+}
+
+.rating-text {
+  font-weight: normal;
+  font-size: 0.9rem;
+  color: var(--gray);
+}
+
+.availability {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: rgba(67, 97, 238, 0.1);
+  color: var(--primary);
+  padding: 0.6rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 500;
+}
+
+.clock-icon {
+  color: var(--primary);
+}
+
+.skills-section {
+  margin-bottom: 2.5rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.section-header h3 {
+  font-size: 1.4rem;
+  color: var(--dark);
+  margin: 0;
+}
+
+.section-icon {
+  color: var(--primary);
+  font-size: 1.2rem;
+  background: rgba(67, 97, 238, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.skill-tag {
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.skill-tag.offered {
+  background: rgba(67, 97, 238, 0.1);
+  color: var(--primary-dark);
+}
+
+.skill-tag.wanted {
+  background: rgba(247, 37, 133, 0.1);
+  color: var(--accent);
+}
+
+.skill-tag:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.no-skills {
+  color: var(--gray);
+  font-style: italic;
+  padding: 0.5rem 0;
+}
+
+.request-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  width: 100%;
+  padding: 1.2rem;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 1rem;
+}
+
+.request-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(67, 97, 238, 0.4);
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+}
+
+.self-profile-note {
+  text-align: center;
+  background: rgba(0,0,0,0.03);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  margin-top: 2rem;
+}
+
+.self-profile-note p {
+  color: var(--gray);
+  margin-bottom: 1.5rem;
+}
+
+.edit-profile-btn {
+  padding: 0.8rem 1.8rem;
+  background: white;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.edit-profile-btn:hover {
+  background: rgba(67, 97, 238, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .profile-header h1 {
+    padding-right: 0;
+    font-size: 1.7rem;
+  }
+  
+  .profile-banner {
+    height: 150px;
+  }
+  
+  .profile-avatar {
+    width: 120px;
+    height: 120px;
+    bottom: -50px;
+  }
+  
+  .profile-info {
+    padding: 4rem 1.5rem 1.5rem;
+  }
+  
+  .profile-meta {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .profile-banner {
+    height: 130px;
+  }
+  
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .section-header h3 {
+    font-size: 1.2rem;
+  }
+  
+  .skill-tag {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}

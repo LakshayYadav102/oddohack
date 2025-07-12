@@ -1,0 +1,343 @@
+/* Navbar.css */
+:root {
+  --primary: #4361ee;
+  --primary-dark: #3f37c9;
+  --secondary: #4cc9f0;
+  --accent: #f72585;
+  --success: #4CAF50;
+  --warning: #FFC107;
+  --danger: #F44336;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --gray: #6c757d;
+  --light-gray: #e9ecef;
+  --card-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  --transition: all 0.3s ease;
+  --border-radius: 12px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2.5rem;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 70px;
+}
+
+.navbar-left, .navbar-center, .navbar-right {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.logo:hover {
+  transform: translateY(-2px);
+}
+
+.logo-icon {
+  color: var(--secondary);
+  font-size: 1.5rem;
+}
+
+.navbar-center {
+  flex: 1;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  position: relative;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-link span {
+  position: relative;
+}
+
+.nav-link span::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--secondary);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+.nav-link:hover, .nav-link.active {
+  color: white;
+}
+
+.nav-link:hover span::after,
+.nav-link.active span::after {
+  width: 100%;
+}
+
+.admin-link {
+  background: rgba(247, 37, 133, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+}
+
+.admin-link:hover {
+  background: rgba(247, 37, 133, 0.3);
+}
+
+.navbar-right {
+  gap: 1.5rem;
+}
+
+.login-btn {
+  padding: 0.7rem 1.8rem;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+  border: 2px solid rgba(255,255,255,0.3);
+}
+
+.login-btn:hover {
+  background: rgba(255,255,255,0.25);
+  transform: translateY(-2px);
+}
+
+.notification-icon {
+  position: relative;
+  font-size: 1.2rem;
+  color: white;
+  cursor: pointer;
+  transition: var(--transition);
+  padding: 0.5rem;
+}
+
+.notification-icon:hover {
+  color: var(--secondary);
+  transform: translateY(-2px);
+}
+
+.notification-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background: var(--accent);
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.user-dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+.user-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  transition: var(--transition);
+  border: 2px solid rgba(255,255,255,0.3);
+}
+
+.user-dropdown:hover .user-avatar {
+  background: rgba(255,255,255,0.25);
+  transform: translateY(-2px);
+  border-color: var(--secondary);
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  width: 280px;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: var(--transition);
+  padding: 1.2rem 0;
+}
+
+.user-dropdown:hover .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1.5rem 1rem;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--dark);
+}
+
+.admin-badge {
+  background: var(--accent);
+  color: white;
+  padding: 0.2rem 0.8rem;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: inline-block;
+  margin-top: 0.3rem;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: var(--light-gray);
+  margin: 0.8rem 0;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1.5rem;
+  text-decoration: none;
+  color: var(--gray);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.dropdown-item:hover {
+  background: rgba(76, 201, 240, 0.1);
+  color: var(--primary);
+}
+
+.dropdown-icon {
+  width: 20px;
+  text-align: center;
+  color: var(--gray);
+}
+
+.dropdown-item:hover .dropdown-icon {
+  color: var(--primary);
+}
+
+.logout-btn {
+  color: var(--danger);
+}
+
+.logout-btn:hover {
+  color: var(--danger);
+}
+
+.logout-btn .dropdown-icon {
+  color: var(--danger);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .navbar {
+    padding: 0.8rem 1.5rem;
+  }
+  
+  .navbar-center {
+    gap: 1.2rem;
+  }
+  
+  .admin-link {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .navbar-left, .navbar-center, .navbar-right {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .navbar-center {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+  
+  .dropdown-content {
+    right: 50%;
+    transform: translate(50%, 10px);
+  }
+  
+  .user-dropdown:hover .dropdown-content {
+    transform: translate(50%, 0);
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-center {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .logo {
+    font-size: 1.4rem;
+  }
+}
