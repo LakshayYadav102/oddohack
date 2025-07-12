@@ -8,13 +8,13 @@ const userSchema = new mongoose.Schema({
   profilePhoto: { type: String },
   skillsOffered: [{ type: String }],
   skillsWanted: [{ type: String }],
-  availability: { type: String }, // weekends, evenings, etc.
+  availability: { type: String }, 
   isPublic: { type: Boolean, default: true },
   isBanned: {
   type: Boolean,
   default: false,
 },
-  isAdmin: { type: Boolean, default: false }, // Add this line
+  isAdmin: { type: Boolean, default: false }, 
   rating: { type: Number, default: 0 },
 }, { timestamps: true });
 

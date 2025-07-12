@@ -1,7 +1,6 @@
 const multer = require('multer');
 const path = require('path');
 
-// Destination & file name logic
 const storage = multer.diskStorage({
   destination(req, file, cb) {
     cb(null, 'upload/');
@@ -11,7 +10,6 @@ const storage = multer.diskStorage({
   },
 });
 
-// Filter for image files
 const fileFilter = (req, file, cb) => {
   const fileTypes = /jpg|jpeg|png/;
   const extname = fileTypes.test(path.extname(file.originalname).toLowerCase());

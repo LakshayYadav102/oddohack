@@ -1,5 +1,3 @@
-// middleware/admin.js
-
 const User = require('../models/User');
 
 const adminMiddleware = async (req, res, next) => {
@@ -14,4 +12,4 @@ const adminMiddleware = async (req, res, next) => {
   }
 };
 
-module.exports = adminMiddleware; // ✅ Exported correctly
+module.exports = adminMiddleware; 

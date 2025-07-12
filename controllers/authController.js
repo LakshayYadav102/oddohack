@@ -13,12 +13,11 @@ exports.register = async (req, res) => {
     const user = new User({ name, email, password: hashedPassword });
     await user.save();
 
-    // 🔐 Immediately generate token
+
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "7d"
     });
 
-    // 🎯 Return token and user data
     res.status(201).json({
       token,
       user: {
@@ -52,15 +51,13 @@ exports.login = async (req, res) => {
   user: {
     _id: user._id,
     name: user.name,
-    isAdmin: user.isAdmin, // ✅ include this
+    isAdmin: user.isAdmin, 
   },
 });
   } catch (err) {
     res.status(500).json({ msg: err.message });
   }
 };
-// Fetch public profiles (with search & pagination)
-// controllers/authController.js
 
 exports.getPublicProfiles = async (req, res) => {
   try {
@@ -68,7 +65,7 @@ exports.getPublicProfiles = async (req, res) => {
 
     const query = {
       isPublic: true,
-      isBanned: { $ne: true }, // ✅ exclude banned users
+      isBanned: { $ne: true }, 
     };
 
     if (availability) {
@@ -100,7 +97,6 @@ exports.getPublicProfiles = async (req, res) => {
 };
 
 
-// Get logged-in user's profile
 exports.getMyProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user).select('-password');
@@ -110,7 +106,6 @@ exports.getMyProfile = async (req, res) => {
   }
 };
 
-// Update logged-in user's profile
 exports.updateMyProfile = async (req, res) => {
   try {
     const updates = req.body;

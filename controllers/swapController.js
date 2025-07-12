@@ -1,7 +1,7 @@
 const Swap = require('../models/Swap');
 const User = require('../models/User');
 
-// Create swap request
+
 exports.createSwap = async (req, res) => {
   try {
     const { toUser, offeredSkill, requestedSkill, message } = req.body;
@@ -21,7 +21,6 @@ exports.createSwap = async (req, res) => {
   }
 };
 
-// Get my incoming and outgoing swaps
 exports.getMySwaps = async (req, res) => {
   try {
     const swaps = await Swap.find({
@@ -30,14 +29,13 @@ exports.getMySwaps = async (req, res) => {
     .populate('fromUser', 'name profilePhoto')
     .populate('toUser', 'name profilePhoto');
 
-    res.json({ swaps, userId: req.user }); // <-- include userId
+    res.json({ swaps, userId: req.user }); 
   } catch (err) {
     res.status(500).json({ msg: err.message });
   }
 };
 
 
-// Accept/Reject a swap
 exports.updateSwapStatus = async (req, res) => {
   try {
     const { id } = req.params;
@@ -60,7 +58,6 @@ exports.updateSwapStatus = async (req, res) => {
   }
 };
 
-// Delete a pending swap (outgoing)
 exports.deleteSwap = async (req, res) => {
   try {
     const { id } = req.params;
@@ -89,7 +86,6 @@ exports.rateUser = async (req, res) => {
     const user = await User.findById(swap.toUser._id);
     if (!user) return res.status(404).json({ msg: 'User not found' });
 
-    // Initialize ratingCount if not exists
     user.ratingCount = user.ratingCount || 0;
 
     user.rating = ((user.rating * user.ratingCount) + rating) / (user.ratingCount + 1);

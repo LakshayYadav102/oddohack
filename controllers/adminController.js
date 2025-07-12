@@ -1,9 +1,9 @@
 const User = require('../models/User');
 const Swap = require('../models/Swap');
 
-// Approve or reject skills
+
 exports.rejectSkill = async (req, res) => {
-  const { userId, skillType, skillName } = req.body; // skillType: 'offered' or 'wanted'
+  const { userId, skillType, skillName } = req.body; 
 
   try {
     const user = await User.findById(userId);
@@ -24,8 +24,6 @@ exports.rejectSkill = async (req, res) => {
   }
 };
 
-
-// Ban a user
 exports.banByEmail = async (req, res) => {
   const { email } = req.body;
   try {
@@ -40,9 +38,6 @@ exports.banByEmail = async (req, res) => {
   }
 };
 
-
-
-// Get all swaps
 exports.getAllSwaps = async (req, res) => {
   const swaps = await Swap.find()
     .populate('fromUser', 'name')
@@ -50,14 +45,12 @@ exports.getAllSwaps = async (req, res) => {
   res.json(swaps);
 };
 
-// Send announcement (optional DB or just return it)
 exports.sendAnnouncement = async (req, res) => {
   const { message } = req.body;
-  console.log('[GLOBAL MESSAGE]', message); // Simulate broadcast
+  console.log('[GLOBAL MESSAGE]', message);
   res.json({ msg: 'Announcement sent' });
 };
 
-// Generate reports (fake summary)
 exports.getReports = async (req, res) => {
   const userCount = await User.countDocuments();
   const swapCount = await Swap.countDocuments();

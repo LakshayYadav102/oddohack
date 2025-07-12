@@ -9,19 +9,18 @@ const swapRoutes = require('./routes/swapRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 
 dotenv.config();
-connectDB(); // connect to MongoDB
+connectDB(); 
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Sample route
+
 app.get('/', (req, res) => {
   res.send('Skill Swap Platform API is running...');
 });
 app.use('/upload', express.static(path.join(__dirname, 'upload')));
 
-// Routes (we'll create them later)
 app.use('/api/users', userRoutes);
 app.use('/api/swaps', swapRoutes);
 app.use('/api/admin', adminRoutes);
